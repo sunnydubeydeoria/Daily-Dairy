@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Warm, cozy diary palette */
+    --background: 40 33% 97%;
+    --foreground: 25 30% 15%;
+
+    --card: 40 40% 99%;
+    --card-foreground: 25 30% 15%;
+
+    --popover: 40 40% 99%;
+    --popover-foreground: 25 30% 15%;
+
+    /* Forest green primary */
+    --primary: 152 44% 28%;
+    --primary-foreground: 40 33% 97%;
+
+    /* Warm beige secondary */
+    --secondary: 35 30% 92%;
+    --secondary-foreground: 25 30% 20%;
+
+    --muted: 35 20% 94%;
+    --muted-foreground: 25 15% 45%;
+
+    /* Warm gold accent */
+    --accent: 38 70% 50%;
+    --accent-foreground: 25 30% 15%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 40 33% 97%;
+
+    --border: 35 25% 88%;
+    --input: 35 25% 88%;
+    --ring: 152 44% 28%;
+
+    --radius: 0.75rem;
+
+    /* Custom diary tokens */
+    --paper: 40 45% 96%;
+    --paper-lines: 35 20% 90%;
+    --ink: 25 30% 18%;
+    --ink-light: 25 20% 40%;
+    --highlight: 48 90% 85%;
+    --shadow-soft: 0 4px 20px -4px hsl(25 30% 15% / 0.08);
+    --shadow-elevated: 0 12px 40px -8px hsl(25 30% 15% / 0.12);
+
+    --sidebar-background: 40 35% 96%;
+    --sidebar-foreground: 25 30% 20%;
+    --sidebar-primary: 152 44% 28%;
+    --sidebar-primary-foreground: 40 33% 97%;
+    --sidebar-accent: 35 30% 92%;
+    --sidebar-accent-foreground: 25 30% 20%;
+    --sidebar-border: 35 25% 88%;
+    --sidebar-ring: 152 44% 28%;
+  }
+
+  .dark {
+    --background: 25 25% 8%;
+    --foreground: 40 20% 92%;
+
+    --card: 25 22% 11%;
+    --card-foreground: 40 20% 92%;
+
+    --popover: 25 22% 11%;
+    --popover-foreground: 40 20% 92%;
+
+    --primary: 152 40% 45%;
+    --primary-foreground: 25 25% 8%;
+
+    --secondary: 25 18% 16%;
+    --secondary-foreground: 40 20% 88%;
+
+    --muted: 25 15% 18%;
+    --muted-foreground: 35 12% 55%;
+
+    --accent: 38 65% 55%;
+    --accent-foreground: 25 25% 8%;
+
+    --destructive: 0 55% 45%;
+    --destructive-foreground: 40 20% 92%;
+
+    --border: 25 18% 18%;
+    --input: 25 18% 18%;
+    --ring: 152 40% 45%;
+
+    --paper: 25 20% 12%;
+    --paper-lines: 25 15% 18%;
+    --ink: 40 20% 88%;
+    --ink-light: 35 15% 60%;
+    --highlight: 48 60% 25%;
+
+    --sidebar-background: 25 22% 10%;
+    --sidebar-foreground: 40 20% 88%;
+    --sidebar-primary: 152 40% 45%;
+    --sidebar-primary-foreground: 25 25% 8%;
+    --sidebar-accent: 25 18% 16%;
+    --sidebar-accent-foreground: 40 20% 88%;
+    --sidebar-border: 25 18% 18%;
+    --sidebar-ring: 152 40% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .paper-texture {
+    background-image: 
+      linear-gradient(90deg, transparent 79px, hsl(var(--paper-lines)) 79px, hsl(var(--paper-lines)) 81px, transparent 81px),
+      linear-gradient(hsl(var(--paper-lines)) 1px, transparent 1px);
+    background-size: 100% 28px;
+    background-color: hsl(var(--paper));
+  }
+
+  .diary-entry {
+    @apply bg-card rounded-xl shadow-soft p-6 border border-border/50 transition-all duration-300;
+  }
+
+  .diary-entry:hover {
+    @apply shadow-elevated -translate-y-0.5;
+  }
+
+  .writing-area {
+    @apply bg-paper rounded-lg border border-border/30 focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary/50 transition-all duration-200;
+  }
+}
